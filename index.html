@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicole Nasengo - Personal Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 smooth-scroll">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">NN</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-purple-600 transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-purple-600 transition-colors">About</a>
+                    <a href="#skills" class="text-gray-700 hover:text-purple-600 transition-colors">Skills</a>
+                    <a href="#projects" class="text-gray-700 hover:text-purple-600 transition-colors">Projects</a>
+                    <a href="#contact" class="text-gray-700 hover:text-purple-600 transition-colors">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#home" class="block text-gray-700 hover:text-purple-600 transition-colors">Home</a>
+                <a href="#about" class="block text-gray-700 hover:text-purple-600 transition-colors">About</a>
+                <a href="#skills" class="block text-gray-700 hover:text-purple-600 transition-colors">Skills</a>
+                <a href="#projects" class="block text-gray-700 hover:text-purple-600 transition-colors">Projects</a>
+                <a href="#contact" class="block text-gray-700 hover:text-purple-600 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="container mx-auto text-center">
+            <div class="animate-fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    <span class="gradient-text">Nicole Nasengo</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 animate-slide-up">
+                    <!-- This will be updated with your profession -->
+                    <span id="profession">Creative Professional</span>
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 animate-slide-up" style="animation-delay: 0.2s;">
+                    <a href="#contact" class="bg-purple-600 text-white px-8 py-3 rounded-full hover:bg-purple-700 transition-all transform hover:scale-105">
+                        Get In Touch
+                    </a>
+                    <a href="#projects" class="border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-full hover:bg-purple-600 hover:text-white transition-all transform hover:scale-105">
+                        View My Work
+                    </a>
+                </div>
+            </div>
+            <div class="mt-16 animate-bounce-slow">
+                <i class="fas fa-chevron-down text-2xl text-purple-600"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">About Me</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <div class="w-64 h-64 mx-auto bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-6xl text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                                <!-- Add your personal story here -->
+                                I'm a passionate professional dedicated to creating meaningful impact through my work. With a unique blend of creativity and technical expertise, I strive to push boundaries and deliver exceptional results.
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-purple-600 mr-3"></i>
+                                    <span class="text-gray-700">Location: Add your city</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-envelope text-purple-600 mr-3"></i>
+                                    <span class="text-gray-700">Email: your.email@example.com</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-phone text-purple-600 mr-3"></i>
+                                    <span class="text-gray-700">Phone: Add your number</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Skills & Expertise</h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-code text-4xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Technical Skills</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Web Development</span>
+                                <span class="text-sm text-gray-600">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">UI/UX Design</span>
+                                <span class="text-sm text-gray-600">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Data Analysis</span>
+                                <span class="text-sm text-gray-600">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-palette text-4xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Creative Skills</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Graphic Design</span>
+                                <span class="text-sm text-gray-600">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Content Creation</span>
+                                <span class="text-sm text-gray-600">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Photography</span>
+                                <span class="text-sm text-gray-600">70%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-users text-4xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Soft Skills</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Communication</span>
+                                <span class="text-sm text-gray-600">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Leadership</span>
+                                <span class="text-sm text-gray-600">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium">Problem Solving</span>
+                                <span class="text-sm text-gray-600">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Featured Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Project One</h3>
+                        <p class="text-gray-600 mb-4">Description of your amazing project goes here. Highlight the key features and technologies used.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Technology 1</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Technology 2</span>
+                        </div>
+                        <a href="#" class="text-purple-600 hover:text-purple-700 font-medium">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Project Two</h3>
+                        <p class="text-gray-600 mb-4">Description of your amazing project goes here. Highlight the key features and technologies used.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Technology 1</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Technology 2</span>
+                        </div>
+                        <a href="#" class="text-purple-600 hover:text-purple-700 font-medium">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-blue-400 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Project Three</h3>
+                        <p class="text-gray-600 mb-4">Description of your amazing project goes here. Highlight the key features and technologies used.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Technology 1</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Technology 2</span>
+                        </div>
+                        <a href="#" class="text-purple-600 hover:text-purple-700 font-medium">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Get In Touch</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-6">Let's Connect</h3>
+                            <p class="text-gray-600 mb-6">
+                                I'm always interested in hearing about new opportunities and exciting projects. Feel free to reach out!
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-envelope text-purple-600 mr-4 text-xl"></i>
+                                    <span class="text-gray-700">your.email@example.com</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-phone text-purple-600 mr-4 text-xl"></i>
+                                    <span class="text-gray-700">+1 (555) 123-4567</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-purple-600 mr-4 text-xl"></i>
+                                    <span class="text-gray-700">Your City, Country</span>
+                                </div>
+                            </div>
+                            <div class="flex space-x-4 mt-8">
+                                <a href="#" class="text-purple-600 hover:text-purple-700 text-2xl">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="text-purple-600 hover:text-purple-700 text-2xl">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="text-purple-600 hover:text-purple-700 text-2xl">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="text-purple-600 hover:text-purple-700 text-2xl">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <form id="contact-form" class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Name</label>
+                                    <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600" required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Email</label>
+                                    <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600" required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Message</label>
+                                    <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600" required></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Nicole Nasengo. All rights reserved.</p>
+            <p class="mt-2 text-gray-400">Designed with <i class="fas fa-heart text-red-500"></i> and lots of <i class="fas fa-coffee text-brown-500"></i></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
