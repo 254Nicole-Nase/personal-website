@@ -167,3 +167,45 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Stardust Particle Effect
+function createParticle() {
+    const particle = document.createElement('div');
+    particle.style.position = 'absolute';
+    particle.style.width = Math.random() * 4 + 1 + 'px';
+    particle.style.height = particle.style.width;
+    particle.style.background = Math.random() > 0.5 ? 'rgba(71, 85, 105, 0.5)' : 'rgba(194, 65, 12, 0.5)';
+    particle.style.borderRadius = '50%';
+    particle.style.pointerEvents = 'none';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.boxShadow = '0 0 8px rgba(71, 85, 105, 0.6)';
+    particle.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
+    
+    document.getElementById('particles-js')?.appendChild(particle);
+    
+    setTimeout(() => {
+        particle.remove();
+    }, 20000);
+}
+
+// Create floating animation
+const floatStyle = document.createElement('style');
+floatStyle.textContent = `
+    @keyframes float {
+        0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateY(-100vh) translateX(${Math.random() * 100 - 50}px); opacity: 0; }
+    }
+`;
+document.head.appendChild(floatStyle);
+
+// Create particles periodically
+if (document.getElementById('particles-js')) {
+    setInterval(createParticle, 500);
+    // Create initial batch
+    for (let i = 0; i < 20; i++) {
+        setTimeout(createParticle, i * 200);
+    }
+}
