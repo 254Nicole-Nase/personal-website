@@ -78,10 +78,11 @@ document.querySelectorAll('section').forEach(section => {
 // Typing effect for profession (optional enhancement)
 const professionElement = document.getElementById('profession');
 const professions = [
-    'Creative Professional',
-    'Digital Innovator',
-    'Problem Solver',
-    'Tech Enthusiast'
+    'Computer Science Student',
+    'Aspiring AI & ML Engineer',
+    'Full-Stack Developer',
+    'Tech Innovator',
+    'Problem Solver'
 ];
 let currentProfessionIndex = 0;
 
