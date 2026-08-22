@@ -1,15 +1,17 @@
 # Nicole Nasengo's Personal Website
 
-A beautiful, modern personal website built with HTML, Tailwind CSS, and vanilla JavaScript.
+A modern, CV-aligned personal portfolio website built with HTML, Tailwind CSS, and vanilla JavaScript.
 
 ## Features
 
 - **Modern UI Design**: Clean, professional design with gradient accents and smooth animations
 - **Fully Responsive**: Works perfectly on desktop, tablet, and mobile devices
 - **Interactive Elements**: Smooth scrolling, hover effects, and micro-interactions
-- **Contact Form**: Functional contact form with validation
+- **Contact Form**: Email-ready contact form with validation
 - **Skill Progress Bars**: Visual representation of technical and soft skills
 - **Project Portfolio**: Showcase your work with beautiful cards
+- **Education & Certifications**: Dedicated section for academic and professional qualifications
+- **Career-Ready Content**: Experience and skills tailored for AI, MLOps, and full-stack opportunities
 - **Navigation**: Sticky navigation with active section highlighting
 - **Dark Mode Ready**: Easy to extend with dark mode support
 
@@ -17,9 +19,11 @@ A beautiful, modern personal website built with HTML, Tailwind CSS, and vanilla 
 
 1. **Hero Section**: Eye-catching introduction with call-to-action buttons
 2. **About Section**: Personal information and story
-3. **Skills Section**: Technical, creative, and soft skills with progress bars
-4. **Projects Section**: Portfolio of your work
-5. **Contact Section**: Contact form and social links
+3. **Experience Section**: Career timeline and impact highlights
+4. **Education & Certifications Section**: Degree, certifications, languages, and interests
+5. **Skills Section**: Technical, AI/ML, cloud, and collaboration strengths
+6. **Projects Section**: Portfolio of your work
+7. **Contact Section**: Contact details, social links, and email-ready contact form
 
 ## Customization
 

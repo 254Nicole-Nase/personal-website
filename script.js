@@ -2,9 +2,11 @@
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
-mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -17,7 +19,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 block: 'start'
             });
             // Close mobile menu if open
-            mobileMenu.classList.add('hidden');
+            mobileMenu?.classList.add('hidden');
         }
     });
 });
@@ -29,19 +31,20 @@ if (contactForm) {
         e.preventDefault();
         
         // Get form data
-        const formData = new FormData(this);
-        const name = this.querySelector('input[type="text"]').value;
-        const email = this.querySelector('input[type="email"]').value;
-        const message = this.querySelector('textarea').value;
+        const name = this.querySelector('input[type="text"]').value.trim();
+        const email = this.querySelector('input[type="email"]').value.trim();
+        const message = this.querySelector('textarea').value.trim();
         
         // Simple validation
         if (!name || !email || !message) {
             alert('Please fill in all fields');
             return;
         }
-        
-        // Show success message (in a real application, you'd send this to a server)
-        alert('Thank you for your message! I\'ll get back to you soon.');
+
+        const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+        const body = encodeURIComponent(`Hi Nicole,\n\n${message}\n\nFrom,\n${name}\n${email}`);
+        window.location.href = `mailto:nasengonicole@gmail.com?subject=${subject}&body=${body}`;
+
         this.reset();
     });
 }
@@ -78,22 +81,25 @@ document.querySelectorAll('section').forEach(section => {
 // Typing effect for profession (optional enhancement)
 const professionElement = document.getElementById('profession');
 const professions = [
-    'Computer Science Student',
-    'Aspiring AI & ML Engineer',
-    'Full-Stack Developer',
-    'Tech Innovator',
-    'Problem Solver'
+    'Computer Science Graduate',
+    'MLOps & Applied ML Engineer',
+    'AI Product Builder',
+    'Full-Stack AI Developer',
+    'Cloud-Native Problem Solver'
 ];
 let currentProfessionIndex = 0;
 
 function typeProfession() {
+    if (!professionElement) return;
     const profession = professions[currentProfessionIndex];
     professionElement.textContent = profession;
     currentProfessionIndex = (currentProfessionIndex + 1) % professions.length;
 }
 
 // Change profession every 3 seconds
-setInterval(typeProfession, 3000);
+if (professionElement) {
+    setInterval(typeProfession, 3000);
+}
 
 // Add hover effect to cards
 document.querySelectorAll('.card-hover').forEach(card => {
