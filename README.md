@@ -4,7 +4,7 @@ An editorial, playful personal portfolio built with plain HTML, CSS and vanilla 
 
 ## Design
 
-An editorial portfolio in a Pearl & rose palette (blush, deep plum and rose, taken from the portrait), set in Archivo and Noto Sans JP. All colours are CSS variables at the top of `index.html`.
+An editorial portfolio in a Navy & tangerine palette (cool white, deep navy and a bright orange accent), set in Archivo and Noto Sans JP. All colours are CSS variables at the top of `index.html`.
 
 - **Language switch**: Kiswahili / English / 日本語 for greetings and section names
 - **Hero**: oversized name and a black-and-white portrait that colours on hover
