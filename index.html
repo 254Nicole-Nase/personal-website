@@ -85,10 +85,7 @@
         .photo { flex: 0 1 360px; margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: #E6D3CC; }
         .photo img {
             width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;
-            filter: grayscale(1) contrast(1.08);
-            transition: filter .5s ease;
         }
-        .photo:hover img { filter: none; }
         .intro { flex: 2 1 420px; display: flex; flex-direction: column; gap: 32px; }
         .intro p {
             margin: 0;
@@ -270,7 +267,7 @@
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
             .pop { animation: none; }
-            .pname, .photo img, .row { transition: none; }
+            .pname, .row { transition: none; }
         }
     </style>
 </head>
@@ -302,7 +299,7 @@
             <div class="hero-body">
                 <div class="caption">
                     <span class="muted">(Fig. 1)</span>
-                    <span>Nicole, at home in Nairobi.<br>Hover for colour.</span>
+                    <span>Nicole, at home in Nairobi.</span>
                 </div>
                 <figure class="photo">
                     <img src="profile.jpg" alt="Portrait of Nicole Nasengo smiling, wearing pearl hoop earrings and a floral top" width="1400" height="1045">
