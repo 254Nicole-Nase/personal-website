@@ -1,23 +1,23 @@
 # Nicole Nasengo's Personal Website
 
-An editorial, playful personal portfolio built with plain HTML, CSS and vanilla JavaScript.
+A model-card style personal portfolio built with plain HTML, CSS and vanilla JavaScript.
 
 ## Design
 
-An editorial portfolio in a Navy & tangerine palette (cool white, deep navy and a bright orange accent), set in Archivo and Noto Sans JP. All colours are CSS variables at the top of `index.html`.
+A portfolio presented as an ML **model card**: dark ink background with amber and rose accents, set in Bricolage Grotesque and IBM Plex Mono.
 
-- **Language switch**: Kiswahili / English / 日本語 for greetings and section names
-- **Hero**: oversized name and a black-and-white portrait that colours on hover
-- **01 Work**: six projects in an index; click a row to open it
-- **02 Path**: year-ruler timeline plus experience and education
-- **03 Skills**: toolbox, plus a small archery game (three arrows, score out of 30)
-- **04 Contact**: oversized email link and socials
+- **Hero**: name, one-line pitch and a portrait framed like an object-detection result
+- **Key numbers**: results pulled from experience
+- **Training run**: education and experience as stages of a pipeline, ending in an open "deploy" stage
+- **Nearest neighbours**: projects shown as search results; pick a query to re-rank them
+- **Feature importance**: skills as an importance chart, plus certifications and hobbies
+- **Deploy me**: contact details in a terminal-style block
 
 ## Technologies Used
 
 - **HTML5 & CSS** (no framework)
-- **Vanilla JavaScript** for the clock, language switch, project index and archery game
-- **Google Fonts**: Archivo, Noto Sans JP
+- **Vanilla JavaScript** for project re-ranking
+- **Google Fonts**: Bricolage Grotesque, IBM Plex Mono, Noto Sans JP
 
 ## Getting Started
 
