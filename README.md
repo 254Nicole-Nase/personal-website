@@ -1,22 +1,22 @@
 # Nicole Nasengo's Personal Website
 
-An editorial personal portfolio built with plain HTML, CSS and vanilla JavaScript.
+An editorial, playful personal portfolio built with plain HTML, CSS and vanilla JavaScript.
 
 ## Design
 
-An editorial, typography-led portfolio: off-white paper, ink black and a single vermilion accent, set in Archivo (with its variable width axis) and Noto Sans JP. Section labels are trilingual — Swahili, English and Japanese.
+An editorial portfolio in a Navy & tangerine palette (cool white, deep navy and a bright orange accent), set in Archivo and Noto Sans JP. All colours are CSS variables at the top of `index.html`.
 
-- **Masthead** with a live Nairobi (EAT) clock
-- **Hero**: oversized name, black-and-white portrait that returns to colour on hover
-- **01 Kazi — Work — 仕事**: project index; click a row to expand it
-- **02 Safari — Path — 道**: year ruler timeline plus experience and education
-- **03 Ujuzi — Skills — 技術**: toolbox and personal notes
-- **04 Wasiliana — Contact — 連絡**: oversized email link and socials
+- **Language switch**: Kiswahili / English / 日本語 for greetings and section names
+- **Hero**: oversized name and a black-and-white portrait that colours on hover
+- **01 Work**: six projects in an index; click a row to open it
+- **02 Path**: year-ruler timeline plus experience and education
+- **03 Skills**: toolbox, plus a small archery game (three arrows, score out of 30)
+- **04 Contact**: oversized email link and socials
 
 ## Technologies Used
 
 - **HTML5 & CSS** (no framework)
-- **Vanilla JavaScript** for the clock and project index
+- **Vanilla JavaScript** for the clock, language switch, project index and archery game
 - **Google Fonts**: Archivo, Noto Sans JP
 
 ## Getting Started

@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nicole Nasengo | MLOps &amp; AI Engineer</title>
-    <meta name="description" content="Nicole Nasengo — MLOps and AI engineer in Nairobi, Kenya. Machine-learning pipelines, semantic retrieval and full-stack AI products.">
+    <meta name="description" content="Nicole Nasengo — MLOps and AI engineer in Nairobi, Kenya. Legal AI, retrieval with citations, food-price forecasting and the pipelines behind them.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&amp;family=Noto+Sans+JP:wght@400;700;900&amp;display=swap" rel="stylesheet">
     <style>
+        /* Palette: Navy & tangerine. Change these to re-theme the whole site. */
         :root {
-            --paper: #F4F3EF;
-            --paper-hover: #ECEAE3;
-            --ink: #111111;
-            --muted: #5E5C57;
-            --muted-dark: #A9A69E;
-            --rule-dark: #45433F;
-            --signal: #C2360F;
+            --paper: #F2F5FA;
+            --paper-hover: #E4EAF3;
+            --ink: #0E1B3D;
+            --muted: #4D5872;
+            --accent: #FF6B2C;
+            --accent-text: #C94A12;
+            --dark: #0E1B3D;
+            --on-dark: #F2F5FA;
+            --on-dark-muted: #AEB8CF;
+            --rule-dark: #2B3A60;
+            --ring-3: #3C5BA9;
+            --gold: #F2B33D;
             --pad: 40px;
         }
 
@@ -30,46 +36,56 @@
             -webkit-font-smoothing: antialiased;
         }
         a { color: var(--ink); }
-        a:hover { color: var(--signal); }
-        a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+        a:hover { color: var(--accent-text); }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
         .jp { font-family: 'Noto Sans JP', sans-serif; }
         .muted { color: var(--muted); }
         .ulink { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
-        .accent { color: var(--signal); }
+        .accent { color: var(--accent); }
+        @keyframes pop { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+        .pop { animation: pop .35s ease both; }
 
         /* Masthead */
         .masthead {
-            padding: 20px var(--pad);
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px;
+            padding: 16px var(--pad);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: space-between;
             font-size: 14px;
             border-bottom: 1px solid var(--ink);
         }
-        .masthead nav { display: flex; gap: 20px; justify-content: flex-end; flex-wrap: wrap; }
-        .masthead nav a { text-decoration: none; }
+        .masthead nav { display: flex; gap: 18px; flex-wrap: wrap; }
+        .masthead nav a { text-decoration: none; padding: 10px 0; }
+        .lang { display: flex; border: 1px solid var(--ink); }
+        .lang button {
+            min-height: 44px; min-width: 52px; padding: 0 12px; border: 0;
+            background: transparent; color: var(--ink);
+            font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer;
+        }
+        .lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
 
         /* Hero */
         .hero { padding: 40px var(--pad) 0; }
         .hero-top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; font-size: 14px; }
+        .hero-top .greet { color: var(--ink); font-weight: 700; }
         .hero h1 {
             margin: 8px 0 0;
-            font-size: clamp(48px, 17.5vw, 300px);
+            font-size: clamp(48px, 16vw, 280px);
             line-height: 0.8;
             font-weight: 900;
             font-stretch: 125%;
             letter-spacing: -0.045em;
             white-space: nowrap;
         }
+        .hero h1 .accent { color: var(--accent); }
         .hero-body { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; margin-top: 40px; padding-bottom: 72px; }
-        .caption { flex: 1 1 240px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.5; }
-        .photo { flex: 0 1 360px; margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: #DDDBD4; }
+        .caption { flex: 1 1 220px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.5; }
+        .photo { flex: 0 1 360px; margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: #DCE3EE; }
         .photo img {
             width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;
-            filter: grayscale(1) contrast(1.08);
-            transition: filter .5s ease;
         }
-        .photo:hover img { filter: none; }
         .intro { flex: 2 1 420px; display: flex; flex-direction: column; gap: 32px; }
         .intro p {
             margin: 0;
@@ -91,10 +107,10 @@
         }
         .facts dt { color: var(--muted); }
         .facts dd { margin: 0; }
-        .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--signal); margin-right: 6px; }
+        .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-right: 6px; }
 
         /* Section headers */
-        section { border-top: 1px solid var(--ink); scroll-margin-top: 0; }
+        section { border-top: 1px solid var(--ink); }
         .section-head {
             padding: 20px var(--pad);
             display: flex;
@@ -114,7 +130,7 @@
             grid-template-columns: 64px minmax(0, 1fr) auto;
             gap: 16px;
             align-items: center;
-            padding: 24px var(--pad);
+            padding: 22px var(--pad);
             background: transparent;
             border: 0;
             color: var(--ink);
@@ -126,28 +142,32 @@
         .row:hover { background: var(--paper-hover); }
         .row .no { font-size: 14px; font-variant-numeric: tabular-nums; }
         .pname {
-            font-size: clamp(44px, 7vw, 112px);
+            font-size: clamp(36px, 6vw, 96px);
             line-height: 0.95;
             font-weight: 800;
             letter-spacing: -0.035em;
             font-stretch: 100%;
             transition: font-stretch .35s ease, color .2s ease;
         }
-        .row:hover .pname { font-stretch: 125%; color: var(--signal); }
+        .row:hover .pname, .row[aria-expanded="true"] .pname { color: var(--accent-text); }
+        .row:hover .pname { font-stretch: 125%; }
         .row .meta { display: flex; align-items: center; gap: 20px; font-size: 14px; }
         .row .sign { font-size: 32px; font-weight: 300; width: 32px; text-align: center; }
         .detail {
             padding: 0 var(--pad) 48px 120px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 32px;
-            font-size: 17px;
-            line-height: 1.55;
+            align-items: start;
         }
         .detail[hidden] { display: none; }
-        .detail p { margin: 0; max-width: 520px; }
+        .detail .big { display: flex; flex-direction: column; gap: 4px; }
+        .detail .big strong { font-size: clamp(40px, 5vw, 72px); line-height: 1; font-weight: 900; letter-spacing: -0.04em; color: var(--accent-text); }
+        .detail .big span { font-size: 14px; color: var(--muted); }
+        .detail p { margin: 0; font-size: 17px; line-height: 1.55; max-width: 520px; }
         .detail .col { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
-        .detail .col a { margin-top: 10px; padding: 8px 0; font-size: 16px; font-weight: 600; }
+        .detail .links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 8px; }
+        .detail .links a { padding: 8px 0; font-size: 16px; font-weight: 600; }
 
         /* Path timeline */
         .timeline-wrap { padding: 40px var(--pad) 24px; overflow-x: auto; }
@@ -158,7 +178,7 @@
         .bar { position: absolute; top: 0; bottom: 0; background: var(--ink); }
         .bar.study { left: 0; width: 94%; color: var(--paper); display: flex; align-items: center; padding-left: 12px; }
         .bar.kpa { left: 66.7%; width: 4.2%; }
-        .bar.saf { left: 88.9%; width: 8.3%; background: var(--signal); }
+        .bar.saf { left: 88.9%; width: 8.3%; background: var(--accent); }
         .track .label { position: absolute; top: 9px; padding-right: 12px; }
         .roles {
             padding: 32px var(--pad) 88px;
@@ -167,7 +187,7 @@
             gap: 40px;
         }
         .roles article { display: flex; flex-direction: column; gap: 12px; border-top: 3px solid var(--ink); padding-top: 16px; }
-        .roles article.current { border-top-color: var(--signal); }
+        .roles article.current { border-top-color: var(--accent); }
         .roles p { margin: 0; }
         .roles .when { font-size: 14px; color: var(--muted); }
         .roles h3 { margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.02em; }
@@ -176,21 +196,48 @@
         .roles .body { font-size: 15px; line-height: 1.55; }
         .roles .certs { font-size: 14px; line-height: 1.6; color: var(--muted); }
 
-        /* Skills */
-        .dark { background: var(--ink); color: var(--paper); }
-        .dark .muted { color: var(--muted-dark); }
-        .skills { padding: 40px var(--pad) 96px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px; }
+        /* Skills + archery (dark band) */
+        .dark { background: var(--dark); color: var(--on-dark); }
+        .dark .muted { color: var(--on-dark-muted); }
+        .skills { padding: 40px var(--pad) 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px; }
         .skills div { display: flex; flex-direction: column; gap: 14px; }
-        .skills h3 { margin: 0; font-size: 14px; font-weight: 400; color: var(--muted-dark); }
-        .skills p { margin: 0; font-size: 30px; line-height: 1.2; font-weight: 600; letter-spacing: -0.015em; }
-        .personal { padding: 0 var(--pad) 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; font-size: 15px; line-height: 1.5; }
-        .personal div { border-top: 1px solid var(--rule-dark); padding-top: 14px; }
+        .skills h3 { margin: 0; font-size: 14px; font-weight: 400; color: var(--on-dark-muted); }
+        .skills p { margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600; letter-spacing: -0.015em; }
+        .archery { padding: 56px var(--pad) 88px; border-top: 1px solid var(--rule-dark); display: flex; flex-wrap: wrap; gap: 56px; align-items: center; }
+        .archery .text { flex: 1 1 360px; display: flex; flex-direction: column; gap: 20px; }
+        .archery h3 { margin: 0; font-size: clamp(40px, 4.6vw, 72px); line-height: 0.95; font-weight: 900; letter-spacing: -0.04em; font-stretch: 112%; }
+        .archery p { margin: 0; font-size: 17px; line-height: 1.55; color: var(--on-dark-muted); max-width: 460px; }
+        .archery .controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+        .archery button {
+            min-height: 52px; padding: 0 28px; border: 0;
+            font-family: inherit; font-size: 17px; font-weight: 700; cursor: pointer;
+        }
+        #shoot { background: var(--accent); color: var(--ink); }
+        #again { background: var(--on-dark); color: var(--ink); }
+        #score { font-size: 17px; font-weight: 600; }
+        .target { flex: 0 0 auto; position: relative; width: 320px; height: 320px; max-width: 100%; aspect-ratio: 1; }
+        .target .ring { position: absolute; border-radius: 50%; }
+        .target .r1 { inset: 0; background: var(--on-dark); }
+        .target .r2 { inset: 10%; background: var(--ink); border: 1px solid var(--rule-dark); }
+        .target .r3 { inset: 20%; background: var(--ring-3); }
+        .target .r4 { inset: 30%; background: var(--accent); }
+        .target .r5 { inset: 40%; background: var(--gold); }
+        .target .sight {
+            position: absolute; width: 36px; height: 36px; margin: -18px 0 0 -18px;
+            border: 2px solid var(--on-dark); border-radius: 50%; box-shadow: 0 0 0 1px var(--ink);
+            pointer-events: none;
+        }
+        .target .arrow {
+            position: absolute; width: 14px; height: 14px; margin: -7px 0 0 -7px;
+            border-radius: 50%; background: var(--on-dark); border: 3px solid var(--ink);
+        }
 
         /* Contact */
-        .contact { padding: 48px var(--pad) 40px; display: flex; flex-direction: column; gap: 40px; }
-        .contact p { margin: 0; font-size: 20px; max-width: 620px; line-height: 1.45; }
+        .contact { padding: 48px var(--pad) 40px; display: flex; flex-direction: column; gap: 32px; }
+        .contact .talk { margin: 0; font-size: clamp(40px, 5vw, 80px); line-height: 1; font-weight: 900; letter-spacing: -0.03em; }
+        .contact p.body { margin: 0; font-size: 20px; max-width: 620px; line-height: 1.45; }
         .big-mail {
-            font-size: clamp(34px, 7.2vw, 128px);
+            font-size: clamp(26px, 6vw, 104px);
             line-height: 0.95;
             font-weight: 800;
             letter-spacing: -0.04em;
@@ -211,15 +258,16 @@
         @media (max-width: 760px) {
             :root { --pad: 20px; }
             .hide-sm { display: none !important; }
-            .hero h1 { font-size: 21vw; font-stretch: 100%; }
-            .masthead nav { justify-content: flex-start; }
-            .skills p { font-size: 24px; }
+            .hero h1 { font-size: 18vw; font-stretch: 100%; }
             .detail { padding-left: var(--pad); }
             .row { grid-template-columns: 44px minmax(0, 1fr) auto; }
+            .skills p { font-size: 24px; }
+            .target { width: 280px; height: 280px; }
         }
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
-            .pname, .photo img, .row { transition: none; }
+            .pop { animation: none; }
+            .pname, .row { transition: none; }
         }
     </style>
 </head>
@@ -227,99 +275,142 @@
 
     <header class="masthead">
         <strong>Nicole Nasengo</strong>
-        <span>MLOps &amp; AI Engineer</span>
-        <span>Nairobi, Kenya — <time id="clock">--:--</time> EAT</span>
+        <span class="hide-sm">MLOps &amp; AI Engineer · Nairobi <time id="clock">--:--</time> EAT</span>
         <nav aria-label="Sections">
-            <a href="#kazi">Work</a>
-            <a href="#safari">Path</a>
-            <a href="#wasiliana">Contact</a>
+            <a href="#kazi" data-i18n="work">Work</a>
+            <a href="#safari" data-i18n="path">Path</a>
+            <a href="#wasiliana" data-i18n="contact">Contact</a>
         </nav>
+        <div class="lang" role="group" aria-label="Language">
+            <button type="button" data-lang="sw" aria-pressed="false">SW</button>
+            <button type="button" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-lang="jp" aria-pressed="false" class="jp">日本語</button>
+        </div>
     </header>
 
     <main>
         <div class="hero">
             <div class="hero-top muted">
                 <span>Portfolio — Edition 2026</span>
-                <span><span style="color: var(--ink)">Habari</span> / Hello / <span class="jp">こんにちは</span></span>
+                <span class="greet" data-i18n="greet">Hello! Welcome.</span>
             </div>
-            <h1>Nasengo</h1>
+            <h1>Nasengo<span class="accent">.</span></h1>
 
             <div class="hero-body">
                 <div class="caption">
                     <span class="muted">(Fig. 1)</span>
-                    <span>Nicole, photographed at home in Nairobi.<br>Hover to restore colour.</span>
+                    <span>Nicole, at home in Nairobi.</span>
                 </div>
                 <figure class="photo">
                     <img src="profile.jpg" alt="Portrait of Nicole Nasengo smiling, wearing pearl hoop earrings and a floral top" width="1400" height="1045">
                 </figure>
                 <div class="intro">
-                    <p>I build machine-learning systems that hold up in production — and the products that put them in people's hands.</p>
+                    <p>I build AI for the places generic AI gets wrong — Kenyan law, food prices, medicine, books — and the pipelines that keep it honest.</p>
                     <dl class="facts">
                         <div><dt>Now</dt><dd>MLOps Intern, Safaricom</dd></div>
                         <div><dt>Studied</dt><dd>BSc Informatics &amp; CS, Strathmore '26</dd></div>
-                        <div><dt>Focus</dt><dd>ML pipelines, retrieval, applied AI</dd></div>
+                        <div><dt>Speaks</dt><dd>Kiswahili, English, <span class="jp">日本語</span> — try the switch ↑</dd></div>
                         <div><dt>Status</dt><dd><span class="dot"></span>Open to graduate roles</dd></div>
                     </dl>
                 </div>
             </div>
         </div>
 
-        <!-- 01 Kazi / Work -->
-        <section id="kazi" aria-labelledby="kazi-title">
+        <!-- 01 Work -->
+        <section id="kazi" aria-labelledby="work-title">
             <div class="section-head">
                 <strong>01</strong>
-                <span id="kazi-title">Kazi — Work — <span class="jp">仕事</span></span>
-                <span class="muted">Selected projects (3)</span>
+                <strong id="work-title" data-i18n="work">Work</strong>
+                <span class="muted">Selected projects (6) — click to open</span>
             </div>
 
             <ol class="projects">
                 <li>
                     <button type="button" class="row" aria-expanded="true" aria-controls="p1">
                         <span class="no">(01)</span>
-                        <span class="pname">SomaRec</span>
-                        <span class="meta"><span class="hide-sm muted">Semantic retrieval · Thesis</span><span class="sign" aria-hidden="true">−</span></span>
+                        <span class="pname">HakiMtaani</span>
+                        <span class="meta"><span class="hide-sm muted">Legal AI · Live</span><span class="sign" aria-hidden="true">−</span></span>
                     </button>
                     <div class="detail" id="p1">
-                        <p>A retrieval engine that finds content by meaning, not keywords. Sentence Transformers embed the corpus, FAISS serves nearest-neighbour search, and an evaluation harness measures retrieval accuracy and guides bias-aware model selection.</p>
-                        <div class="col"><span class="muted">Built with</span><span>React, Flask, FAISS, Sentence Transformers</span></div>
-                        <div class="col"><span class="muted">Notable</span><span>Basis of my BSc thesis on context-aware retrieval.</span>
-                            <a class="ulink" href="https://github.com/254Nicole-Nase/somaRec-thematic-recommender" target="_blank" rel="noopener">Source on GitHub ↗</a></div>
+                        <div class="big"><strong>EN · SW · Sheng</strong><span>describe your problem in any of them, typed or spoken</span></div>
+                        <p>Free legal help for Kenyan tenants and workers who can't afford a lawyer. AI understands the story; tested code computes what you're owed under the Employment Act and writes a demand letter you can send today. Built with Team Justly.so.</p>
+                        <div class="col"><span class="muted">Built with</span><span>TypeScript, Supabase, Azure OpenAI, Azure Speech</span>
+                            <div class="links"><a class="ulink" href="https://hakimtaani.vercel.app" target="_blank" rel="noopener">Try it live ↗</a><a class="ulink" href="https://github.com/254Nicole-Nase/hakimtaani" target="_blank" rel="noopener">Source ↗</a></div></div>
                     </div>
                 </li>
                 <li>
                     <button type="button" class="row" aria-expanded="false" aria-controls="p2">
                         <span class="no">(02)</span>
-                        <span class="pname">RxAware</span>
-                        <span class="meta"><span class="hide-sm muted">Public health · AI-native</span><span class="sign" aria-hidden="true">+</span></span>
+                        <span class="pname">The Price of a Healthy Plate</span>
+                        <span class="meta"><span class="hide-sm muted">Data story · Forecasting</span><span class="sign" aria-hidden="true">+</span></span>
                     </button>
                     <div class="detail" id="p2" hidden>
-                        <p>Converts dense clinical text into patient-friendly medication safety cards using the Gemini API. Works offline-first with IndexedDB caching, and keeps API secrets behind a hardened Express backend.</p>
-                        <div class="col"><span class="muted">Built with</span><span>React, TypeScript, Express, Gemini API</span></div>
-                        <div class="col"><span class="muted">Notable</span><span>Designed for low-connectivity settings.</span>
-                            <a class="ulink" href="mailto:nasengonicole@gmail.com?subject=RxAware%20demo">Request a demo ↗</a></div>
+                        <div class="big"><strong>76.3%</strong><span>of Kenyans can't afford a healthy diet (world: 32.7%)</span></div>
+                        <p>Decomposes the affordability crisis by food group, maps it across 168 countries, and forecasts it to 2030 from a 145-country panel and 10,561 market price records.</p>
+                        <div class="col"><span class="muted">Built with</span><span>Python, DuckDB, pandas, scikit-learn, Hugging Face</span>
+                            <div class="links"><a class="ulink" href="https://github.com/254Nicole-Nase/price-of-a-healthy-plate" target="_blank" rel="noopener">Source ↗</a></div></div>
                     </div>
                 </li>
                 <li>
                     <button type="button" class="row" aria-expanded="false" aria-controls="p3">
                         <span class="no">(03)</span>
-                        <span class="pname">Mechaware</span>
-                        <span class="meta"><span class="hide-sm muted">Marketplace · PWA</span><span class="sign" aria-hidden="true">+</span></span>
+                        <span class="pname">Drug Info Center</span>
+                        <span class="meta"><span class="hide-sm muted">RAG · Evaluated</span><span class="sign" aria-hidden="true">+</span></span>
                     </button>
                     <div class="detail" id="p3" hidden>
-                        <p>A peer-to-peer auto-parts marketplace with secure two-way escrow, real-time inventory and affiliate flows for mechanics — installable as a Progressive Web App.</p>
-                        <div class="col"><span class="muted">Built with</span><span>React, TypeScript, Firebase, PWA</span></div>
-                        <div class="col"><span class="muted">Notable</span><span>Escrow protects both buyer and seller.</span>
-                            <a class="ulink" href="https://github.com/254Nicole-Nase/Mechaware" target="_blank" rel="noopener">Source on GitHub ↗</a></div>
+                        <div class="big"><strong>Cited or silent</strong><span>every answer quotes FDA label text — or it refuses</span></div>
+                        <p>A drug-information assistant with hybrid retrieval (pgvector + BM25), a live evaluation dashboard for faithfulness and refusal accuracy, and a Kenya view of local brands.</p>
+                        <div class="col"><span class="muted">Built with</span><span>TanStack Start, Postgres + pgvector, openFDA, RxNorm, Docker</span>
+                            <div class="links"><a class="ulink" href="https://github.com/254Nicole-Nase/Drug-Information-Base" target="_blank" rel="noopener">Source ↗</a></div></div>
+                    </div>
+                </li>
+                <li>
+                    <button type="button" class="row" aria-expanded="false" aria-controls="p4">
+                        <span class="no">(04)</span>
+                        <span class="pname">BizOps Standup Agent</span>
+                        <span class="meta"><span class="hide-sm muted">AI agent · Human in the loop</span><span class="sign" aria-hidden="true">+</span></span>
+                    </button>
+                    <div class="detail" id="p4" hidden>
+                        <div class="big"><strong>4 gates</strong><span>between the LLM and your Slack channel</span></div>
+                        <p>Turns a Notion project tracker into a weekly executive brief. Code scores the risk, the LLM writes, and a grounding gate rejects any brief that invents a project.</p>
+                        <div class="col"><span class="muted">Built with</span><span>TypeScript, Gemini, Zod, Notion API, Slack API</span>
+                            <div class="links"><a class="ulink" href="https://github.com/254Nicole-Nase/BizOps-Standup-Agent-" target="_blank" rel="noopener">Source ↗</a></div></div>
+                    </div>
+                </li>
+                <li>
+                    <button type="button" class="row" aria-expanded="false" aria-controls="p5">
+                        <span class="no">(05)</span>
+                        <span class="pname">SomaRec</span>
+                        <span class="meta"><span class="hide-sm muted">Semantic search · Thesis</span><span class="sign" aria-hidden="true">+</span></span>
+                    </button>
+                    <div class="detail" id="p5" hidden>
+                        <div class="big"><strong>“hadithi za watoto”</strong><span>search Kenyan books by what they're about</span></div>
+                        <p>Keyword and multilingual embedding search fused together, plus shelves, reviews and a CBC reading finder for teachers.</p>
+                        <div class="col"><span class="muted">Built with</span><span>React, Flask, FAISS, BM25, Supabase</span>
+                            <div class="links"><a class="ulink" href="https://github.com/254Nicole-Nase/somaRec-thematic-recommender" target="_blank" rel="noopener">Source ↗</a></div></div>
+                    </div>
+                </li>
+                <li>
+                    <button type="button" class="row" aria-expanded="false" aria-controls="p6">
+                        <span class="no">(06)</span>
+                        <span class="pname">Breaking Point</span>
+                        <span class="meta"><span class="hide-sm muted">ML pipeline · Competition</span><span class="sign" aria-hidden="true">+</span></span>
+                    </button>
+                    <div class="detail" id="p6" hidden>
+                        <div class="big"><strong>2 years</strong><span>ahead: when the model flags food-system crisis risk</span></div>
+                        <p>FAOSTAT pipeline merging six data domains into a country-year panel, with an explainable vulnerability index and a Streamlit dashboard.</p>
+                        <div class="col"><span class="muted">Built with</span><span>Python, pandas, scikit-learn, Streamlit, Plotly</span>
+                            <div class="links"><a class="ulink" href="https://github.com/254Nicole-Nase/Faostat-pipeline" target="_blank" rel="noopener">Source ↗</a></div></div>
                     </div>
                 </li>
             </ol>
         </section>
 
-        <!-- 02 Safari / Path -->
-        <section id="safari" aria-labelledby="safari-title">
+        <!-- 02 Path -->
+        <section id="safari" aria-labelledby="path-title">
             <div class="section-head">
                 <strong>02</strong>
-                <span id="safari-title">Safari — Path — <span class="jp">道</span></span>
+                <strong id="path-title" data-i18n="path">Path</strong>
                 <span class="muted">2021 → today</span>
             </div>
 
@@ -358,41 +449,54 @@
                     <p class="when">2021 — Aug 2026 · Nairobi</p>
                     <h3>Strathmore University</h3>
                     <p class="title">BSc Informatics &amp; Computer Science</p>
-                    <p class="body">Thesis: <i>SomaRec</i> — vector embeddings and LLMs for context-aware data retrieval, with a focus on retrieval quality and practical adoption.</p>
+                    <p class="body">Thesis: <i>SomaRec</i> — vector embeddings and LLMs for context-aware data retrieval.</p>
                     <p class="certs">Certified: CCNAv7 Introduction to Networks · DevNet Associate · Applying Machine Learning · Machine &amp; Deep Learning Algorithms · Python AI Development · ML Pipeline Management</p>
                 </article>
             </div>
         </section>
 
-        <!-- 03 Ujuzi / Skills -->
-        <section class="dark" aria-labelledby="ujuzi-title">
+        <!-- 03 Skills + archery -->
+        <section class="dark" aria-labelledby="skills-title">
             <div class="section-head">
                 <strong>03</strong>
-                <span id="ujuzi-title">Ujuzi — Skills — <span class="jp">技術</span></span>
+                <strong id="skills-title" data-i18n="skills">Skills</strong>
                 <span class="muted">Toolbox</span>
             </div>
             <div class="skills">
-                <div><h3>Machine learning &amp; data</h3><p>Feature engineering, LightGBM, FAISS, Sentence Transformers, Spark, Airflow</p></div>
-                <div><h3>Software</h3><p>Python, TypeScript, React, Express, SQL, Flask, Firebase</p></div>
-                <div><h3>Infrastructure</h3><p>AWS (S3, SageMaker, EC2), Docker, Kubernetes, Linux, Jenkins, Git</p></div>
+                <div><h3>Machine learning &amp; data</h3><p>RAG &amp; evals, FAISS, pgvector, LightGBM, scikit-learn, Spark, Airflow</p></div>
+                <div><h3>Software</h3><p>Python, TypeScript, React, Express, Flask, SQL, Supabase</p></div>
+                <div><h3>Infrastructure</h3><p>AWS, Azure AI, Docker, Kubernetes, Jenkins, GitHub Actions</p></div>
             </div>
-            <div class="personal">
-                <div><span class="muted">Speaks</span><br>Kiswahili, English, <span class="jp">日本語</span> (learning)</div>
-                <div><span class="muted">Writes</span><br>Technical blog posts &amp; docs</div>
-                <div><span class="muted">Aims</span><br>Archery — on and off the target</div>
-                <div><span class="muted">Reads</span><br>Widely; watches video essays on tech &amp; society</div>
+
+            <div class="archery">
+                <div class="text">
+                    <span class="muted">Off duty</span>
+                    <h3>I do archery. Your turn.</h3>
+                    <p>Three arrows. The sight drifts — release when it crosses the gold. (Tuning a decision threshold feels about the same.)</p>
+                    <div class="controls">
+                        <button type="button" id="shoot">Release arrow (3 left)</button>
+                        <button type="button" id="again" hidden>Shoot again</button>
+                        <span id="score" aria-live="polite"></span>
+                    </div>
+                    <p style="font-size: 14px">Also: avid reader, technical blogger, watcher of video essays on tech &amp; society.</p>
+                </div>
+                <div class="target" id="target" role="img" aria-label="Archery target showing your arrows">
+                    <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="ring r4"></div><div class="ring r5"></div>
+                    <span class="sight" id="sight" aria-hidden="true" style="left: 50%; top: 50%"></span>
+                </div>
             </div>
         </section>
 
-        <!-- 04 Wasiliana / Contact -->
-        <section id="wasiliana" aria-labelledby="wasiliana-title">
+        <!-- 04 Contact -->
+        <section id="wasiliana" aria-labelledby="contact-title">
             <div class="section-head">
                 <strong>04</strong>
-                <span id="wasiliana-title">Wasiliana — Contact — <span class="jp">連絡</span></span>
+                <strong id="contact-title" data-i18n="contact">Contact</strong>
                 <span class="muted">Replies from Nairobi, EAT (UTC+3)</span>
             </div>
             <div class="contact">
-                <p>Hiring for MLOps, AI engineering or full-stack product work — or just want to talk retrieval? Write to me.</p>
+                <p class="talk" data-i18n="talk">Let's talk.</p>
+                <p class="body">Hiring for MLOps, AI engineering or full-stack product work — or want to talk retrieval? Write to me.</p>
                 <a class="big-mail" href="mailto:nasengonicole@gmail.com">nasengonicole<span class="accent">@</span>gmail.com</a>
             </div>
             <footer>
