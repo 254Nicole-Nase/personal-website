@@ -2,8 +2,9 @@
 const queries = {
     all: 'AI that helps people',
     retrieval: 'semantic search over messy content',
-    health: 'safer medicine for patients',
-    commerce: 'trusted marketplace payments'
+    impact: 'tools for people who are underserved',
+    data: 'what the numbers say about Kenya',
+    agents: 'LLMs that check their own work'
 };
 
 const results = document.getElementById('results');
@@ -27,3 +28,5 @@ function rank(q) {
 }
 
 chips.forEach(chip => chip.addEventListener('click', () => rank(chip.dataset.q)));
+
+rank('all');

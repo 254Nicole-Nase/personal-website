@@ -130,7 +130,8 @@
         .result p.desc { margin: 0; font-size: 16px; line-height: 1.55; color: var(--paper-body); }
         .result ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
         .result li { font-size: 12px; padding: 6px 10px; border-radius: 6px; background: var(--paper); color: var(--paper-body); }
-        .result a { margin-top: auto; color: var(--paper-ink); font-weight: 600; font-size: 16px; padding: 10px 0; text-decoration-color: var(--clay); text-underline-offset: 4px; }
+        .result .links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 20px; }
+        .result a { color: var(--paper-ink); font-weight: 600; font-size: 16px; padding: 10px 0; text-decoration-color: var(--clay); text-underline-offset: 4px; }
 
         /* Feature importance */
         #features { padding-top: 112px; padding-bottom: 112px; }
@@ -225,7 +226,7 @@
             <div class="metrics">
                 <div class="metric"><span class="num dot-accent">0.86</span><span class="desc">churn-model threshold I tuned for precision vs recall at Safaricom</span></div>
                 <div class="metric"><span class="num">1,000+</span><span class="desc">staff relying on the SAP, CATOS &amp; CCIMS systems I supported at KPA</span></div>
-                <div class="metric"><span class="num">3</span><span class="desc">AI-powered products built end to end — retrieval, health, commerce</span></div>
+                <div class="metric"><span class="num">6</span><span class="desc">AI &amp; data products built end to end — law, health, food, books, ops</span></div>
                 <div class="metric"><span class="num">3<span class="jp">言語</span></span><span class="desc">Swahili (native), English (fluent), Japanese (learning)</span></div>
             </div>
         </section>
@@ -268,50 +269,84 @@
             <div class="wrap sec">
                 <div class="sec-head">
                     <h2 id="projects-title">Nearest neighbours<span class="dot-accent">.</span></h2>
-                    <p>My projects, ranked like SomaRec would rank them. Pick a query and watch the order change.</p>
+                    <p>My projects, ranked the way SomaRec ranks books. Pick a query to re-order them.</p>
                 </div>
                 <div class="query">
-                    <div class="prompt mono"><span class="caret">›</span><span>faiss.search("<span id="query-text">AI that helps people</span>", k=3)</span></div>
+                    <div class="prompt mono"><span class="caret">›</span><span>faiss.search("<span id="query-text">AI that helps people</span>", k=6)</span></div>
                     <div class="chips" role="group" aria-label="Choose a query">
                         <button type="button" class="chip mono" data-q="all" aria-pressed="true">everything</button>
                         <button type="button" class="chip mono" data-q="retrieval" aria-pressed="false">retrieval</button>
-                        <button type="button" class="chip mono" data-q="health" aria-pressed="false">health</button>
-                        <button type="button" class="chip mono" data-q="commerce" aria-pressed="false">commerce</button>
+                        <button type="button" class="chip mono" data-q="impact" aria-pressed="false">social impact</button>
+                        <button type="button" class="chip mono" data-q="data" aria-pressed="false">data</button>
+                        <button type="button" class="chip mono" data-q="agents" aria-pressed="false">agents</button>
                     </div>
                 </div>
                 <div class="results" id="results" aria-live="polite">
-                    <article class="result" data-scores='{"all":0.94,"retrieval":0.97,"health":0.61,"commerce":0.58}'>
-                        <div class="meta mono"><span class="rank">rank #1</span><span class="score">cos_sim 0.94</span></div>
-                        <div class="sim" aria-hidden="true"><span style="width: 94%"></span></div>
+                    <article class="result" data-scores='{"all":0.96,"retrieval":0.84,"impact":0.98,"data":0.62,"agents":0.80}'>
+                        <div class="meta mono"><span class="rank">rank #0</span><span class="score">cos_sim 0.00</span></div>
+                        <div class="sim" aria-hidden="true"><span></span></div>
                         <div>
-                            <p class="tag mono">Semantic retrieval · thesis</p>
+                            <p class="tag mono">Legal AI · live</p>
+                            <h3>HakiMtaani</h3>
+                        </div>
+                        <p class="desc">Free legal help for Kenyan tenants and workers, in English, Kiswahili or Sheng. AI reads the story; tested code computes what you're owed and writes the letter.</p>
+                        <ul class="mono"><li>TypeScript</li><li>Supabase</li><li>Azure OpenAI</li><li>Azure Speech</li></ul>
+                        <div class="links"><a href="https://hakimtaani.vercel.app" target="_blank" rel="noopener">Try it live →</a> <a href="https://github.com/254Nicole-Nase/hakimtaani" target="_blank" rel="noopener">Source →</a></div>
+                    </article>
+                    <article class="result" data-scores='{"all":0.93,"retrieval":0.97,"impact":0.88,"data":0.70,"agents":0.66}'>
+                        <div class="meta mono"><span class="rank">rank #0</span><span class="score">cos_sim 0.00</span></div>
+                        <div class="sim" aria-hidden="true"><span></span></div>
+                        <div>
+                            <p class="tag mono">RAG · evaluated</p>
+                            <h3>Drug Info Center</h3>
+                        </div>
+                        <p class="desc">Drug-information assistant that cites every answer to FDA label text and refuses unsafe questions, with a live evaluation dashboard.</p>
+                        <ul class="mono"><li>pgvector</li><li>BM25</li><li>openFDA</li><li>TanStack Start</li></ul>
+                        <div class="links"><a href="https://github.com/254Nicole-Nase/Drug-Information-Base" target="_blank" rel="noopener">Source →</a></div>
+                    </article>
+                    <article class="result" data-scores='{"all":0.91,"retrieval":0.45,"impact":0.93,"data":0.98,"agents":0.40}'>
+                        <div class="meta mono"><span class="rank">rank #0</span><span class="score">cos_sim 0.00</span></div>
+                        <div class="sim" aria-hidden="true"><span></span></div>
+                        <div>
+                            <p class="tag mono">Data story · forecasting</p>
+                            <h3>The Price of a Healthy Plate</h3>
+                        </div>
+                        <p class="desc">76.3% of Kenyans can't afford a healthy diet. Mapped across 168 countries and forecast to 2030 from 10,561 market price records.</p>
+                        <ul class="mono"><li>Python</li><li>DuckDB</li><li>scikit-learn</li><li>Hugging Face</li></ul>
+                        <div class="links"><a href="https://github.com/254Nicole-Nase/price-of-a-healthy-plate" target="_blank" rel="noopener">Source →</a></div>
+                    </article>
+                    <article class="result" data-scores='{"all":0.89,"retrieval":0.58,"impact":0.41,"data":0.74,"agents":0.97}'>
+                        <div class="meta mono"><span class="rank">rank #0</span><span class="score">cos_sim 0.00</span></div>
+                        <div class="sim" aria-hidden="true"><span></span></div>
+                        <div>
+                            <p class="tag mono">AI agent · human in the loop</p>
+                            <h3>BizOps Standup Agent</h3>
+                        </div>
+                        <p class="desc">Turns a Notion tracker into a weekly Slack brief. Code scores the risk, the LLM writes, and quality gates hold anything that looks off.</p>
+                        <ul class="mono"><li>TypeScript</li><li>Gemini</li><li>Zod</li><li>Notion + Slack</li></ul>
+                        <div class="links"><a href="https://github.com/254Nicole-Nase/BizOps-Standup-Agent-" target="_blank" rel="noopener">Source →</a></div>
+                    </article>
+                    <article class="result" data-scores='{"all":0.90,"retrieval":0.95,"impact":0.79,"data":0.66,"agents":0.52}'>
+                        <div class="meta mono"><span class="rank">rank #0</span><span class="score">cos_sim 0.00</span></div>
+                        <div class="sim" aria-hidden="true"><span></span></div>
+                        <div>
+                            <p class="tag mono">Semantic search · thesis</p>
                             <h3>SomaRec</h3>
                         </div>
-                        <p class="desc">AI retrieval engine using Sentence Transformers and FAISS for context-aware content discovery, with retrieval-accuracy evaluation and bias-aware model selection.</p>
-                        <ul class="mono"><li>React</li><li>Flask</li><li>FAISS</li><li>Sentence Transformers</li></ul>
-                        <a href="https://github.com/254Nicole-Nase/somaRec-thematic-recommender" target="_blank" rel="noopener">View on GitHub →</a>
+                        <p class="desc">Find Kenyan books by what they're about, in English or Kiswahili, plus a CBC reading finder for teachers.</p>
+                        <ul class="mono"><li>FAISS</li><li>BM25</li><li>Flask</li><li>React</li></ul>
+                        <div class="links"><a href="https://github.com/254Nicole-Nase/somaRec-thematic-recommender" target="_blank" rel="noopener">Source →</a></div>
                     </article>
-                    <article class="result" data-scores='{"all":0.91,"retrieval":0.72,"health":0.98,"commerce":0.55}'>
-                        <div class="meta mono"><span class="rank">rank #2</span><span class="score">cos_sim 0.91</span></div>
-                        <div class="sim" aria-hidden="true"><span style="width: 91%"></span></div>
+                    <article class="result" data-scores='{"all":0.86,"retrieval":0.40,"impact":0.85,"data":0.94,"agents":0.48}'>
+                        <div class="meta mono"><span class="rank">rank #0</span><span class="score">cos_sim 0.00</span></div>
+                        <div class="sim" aria-hidden="true"><span></span></div>
                         <div>
-                            <p class="tag mono">Public health · AI-native</p>
-                            <h3>RxAware</h3>
+                            <p class="tag mono">ML pipeline · competition</p>
+                            <h3>Breaking Point</h3>
                         </div>
-                        <p class="desc">Turns clinical text into patient-friendly safety cards with the Gemini API. Offline-first with IndexedDB caching and a secured Express backend for secrets.</p>
-                        <ul class="mono"><li>React</li><li>TypeScript</li><li>Express</li><li>Gemini API</li></ul>
-                        <a href="mailto:nasengonicole@gmail.com?subject=RxAware%20demo">Request a demo →</a>
-                    </article>
-                    <article class="result" data-scores='{"all":0.88,"retrieval":0.52,"health":0.40,"commerce":0.96}'>
-                        <div class="meta mono"><span class="rank">rank #3</span><span class="score">cos_sim 0.88</span></div>
-                        <div class="sim" aria-hidden="true"><span style="width: 88%"></span></div>
-                        <div>
-                            <p class="tag mono">Marketplace · PWA</p>
-                            <h3>Mechaware</h3>
-                        </div>
-                        <p class="desc">Peer-to-peer auto-parts marketplace with secure two-way escrow, real-time inventory updates and mechanic affiliate flows.</p>
-                        <ul class="mono"><li>React</li><li>TypeScript</li><li>Firebase</li><li>PWA</li></ul>
-                        <a href="https://github.com/254Nicole-Nase/Mechaware" target="_blank" rel="noopener">View on GitHub →</a>
+                        <p class="desc">FAOSTAT food-system pipeline: a vulnerability index and a model that flags crisis risk two years ahead.</p>
+                        <ul class="mono"><li>Python</li><li>scikit-learn</li><li>Streamlit</li><li>FAOSTAT</li></ul>
+                        <div class="links"><a href="https://github.com/254Nicole-Nase/Faostat-pipeline" target="_blank" rel="noopener">Source →</a></div>
                     </article>
                 </div>
             </div>
