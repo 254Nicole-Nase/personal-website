@@ -108,6 +108,9 @@
         .stage .when { margin: 0; font-size: 12px; color: var(--amber); }
         .stage p.body { margin: 0; font-size: 15px; line-height: 1.55; color: var(--body); }
         .stage b { color: var(--text); }
+        .stage ul { margin: 0; padding-left: 18px; font-size: 15px; line-height: 1.55; color: var(--body); display: flex; flex-direction: column; gap: 6px; }
+        .stage .award { margin: 0; font-size: 13px; color: var(--amber); border-top: 1px solid var(--line); padding-top: 12px; }
+        .deploy-row .text p.availability { margin: 0; font-size: 15px; color: var(--ok); }
         .stage .trigger { margin-top: auto; font-size: 15px; font-weight: 600; text-decoration: none; padding: 12px 0; }
 
         /* Projects (light band) */
@@ -254,7 +257,14 @@
                     <div class="stage-top mono"><span>03 · train</span><span class="ok">✓ success</span></div>
                     <h3>Safaricom</h3>
                     <p class="when mono">MLOps Intern · Nairobi · May — Oct 2026</p>
-                    <p class="body">Orchestrated feature-store pipeline jobs, built a LightGBM churn model for mobile-money data with revenue-at-risk insights, and hardened an internal AI gateway on AWS.</p>
+                    <ul>
+                        <li>Took over and deployed two ML services: a device-financing early-warning model and a RAG chatbot for the cybersecurity team.</li>
+                        <li>Fixed failing Jenkins and SonarQube builds on a hardened base image.</li>
+                        <li>Traced customers disappearing between databases to mismatched phone-number formats.</li>
+                        <li>Built feature-store pipeline jobs for a survival model (Random Survival Forest).</li>
+                        <li>Worked on an internal LLM gateway (LiteLLM) on AWS, from DEV to UAT.</li>
+                    </ul>
+                    <p class="award mono">3rd place · Safaricom hackathon (SafeUndo)</p>
                 </li>
                 <li class="stage next">
                     <div class="stage-top mono"><span>04 · deploy</span><span class="wait">◌ awaiting</span></div>
@@ -298,7 +308,7 @@
                         <div class="meta mono"><span class="rank">rank #0</span><span class="score">cos_sim 0.00</span></div>
                         <div class="sim" aria-hidden="true"><span></span></div>
                         <div>
-                            <p class="tag mono">Research · Apart sprint · Nov 2026</p>
+                            <p class="tag mono">Research · Nov 2026</p>
                             <h3>EvidenceGuard</h3>
                         </div>
                         <p class="desc">Can embedding similarity tell when a RAG answer is hallucinated? Across 69,217 RAGTruth sentences, an NLI cross-encoder reached 0.72 AUROC vs 0.57 for cosine, and cosine ranked contradicting sentences below supported ones.</p>
@@ -362,9 +372,9 @@
                 <li><h3>LLM evaluation &amp; research</h3><span class="tools mono">NLI cross-encoders · AUROC · bootstrap CIs · LLM-as-judge</span><span class="proof"><a href="https://github.com/254Nicole-Nase/evidence-guard" target="_blank" rel="noopener">EvidenceGuard</a><a href="https://drug-information-base.vercel.app/" target="_blank" rel="noopener">Drug Info Center</a></span></li>
                 <li><h3>Retrieval &amp; RAG</h3><span class="tools mono">FAISS · pgvector · BM25 · Sentence Transformers</span><span class="proof"><a href="https://soma-rec-thematic-recommender.vercel.app/" target="_blank" rel="noopener">SomaRec</a><a href="https://drug-information-base.vercel.app/" target="_blank" rel="noopener">Drug Info Center</a></span></li>
                 <li><h3>LLM apps &amp; agents</h3><span class="tools mono">Gemini · Azure OpenAI · structured output (Zod) · quality gates</span><span class="proof"><a href="https://hakimtaani.vercel.app" target="_blank" rel="noopener">HakiMtaani</a><a href="https://bizops-standup-agent.onrender.com" target="_blank" rel="noopener">BizOps Standup Agent</a></span></li>
-                <li><h3>MLOps &amp; pipelines</h3><span class="tools mono">Feature stores · LightGBM · Airflow · Spark</span><span class="proof"><a href="#pipeline">Safaricom</a><a href="https://github.com/254Nicole-Nase/Faostat-pipeline" target="_blank" rel="noopener">Breaking Point</a></span></li>
+                <li><h3>MLOps &amp; pipelines</h3><span class="tools mono">Model deployment · feature-store pipelines · survival models (RSF) · Jenkins · SonarQube</span><span class="proof"><a href="#pipeline">Safaricom</a></span></li>
                 <li><h3>Data &amp; forecasting</h3><span class="tools mono">pandas · DuckDB · scikit-learn · Streamlit · Plotly</span><span class="proof"><a href="https://254Nicole-Nase.github.io/price-of-a-healthy-plate/" target="_blank" rel="noopener">Price of a Healthy Plate</a></span></li>
-                <li><h3>Cloud &amp; infrastructure</h3><span class="tools mono">AWS · Azure AI · Docker · Kubernetes · Jenkins · GitHub Actions</span><span class="proof"><a href="#pipeline">Safaricom AI gateway</a><a href="https://github.com/254Nicole-Nase/kubernetes-hackathon" target="_blank" rel="noopener">Kubernetes Hackathon</a></span></li>
+                <li><h3>Cloud &amp; infrastructure</h3><span class="tools mono">AWS · Azure AI · Docker · LiteLLM · GitHub Actions · Kubernetes (hackathon, familiar)</span><span class="proof"><a href="#pipeline">Safaricom LLM gateway</a><a href="https://github.com/254Nicole-Nase/kubernetes-hackathon" target="_blank" rel="noopener">Kubernetes Hackathon</a></span></li>
                 <li><h3>Full-stack</h3><span class="tools mono">Python · TypeScript · React · Express · Flask · Supabase</span><span class="proof"><a href="https://hakimtaani.vercel.app" target="_blank" rel="noopener">HakiMtaani</a><a href="https://soma-rec-thematic-recommender.vercel.app/" target="_blank" rel="noopener">SomaRec</a></span></li>
             </ul>
             <div class="extras">
@@ -375,8 +385,7 @@
                 <div class="extra">
                     <p class="file mono">off_duty.log</p>
                     <div class="hobby">
-                        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true"><circle cx="28" cy="28" r="26" stroke="#3A404C" stroke-width="2"/><circle cx="28" cy="28" r="17" stroke="#F48FB1" stroke-width="2"/><circle cx="28" cy="28" r="8" stroke="#F2A541" stroke-width="2"/><circle cx="28" cy="28" r="2.5" fill="#F2A541"/><path d="M46 10L29.5 26.5" stroke="#EEE8DF" stroke-width="2" stroke-linecap="round"/><path d="M41 9h6v6" stroke="#EEE8DF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <p>Speaks Kiswahili and English, learning <span class="jp">日本語</span>. Archery (precision is a hobby, too), avid reading, technical blogging and video essays on tech &amp; society.</p>
+                        <p>Speaks Kiswahili and English, learning <span class="jp">日本語</span>. Avid reader; technical blogging and video essays on tech &amp; society.</p>
                     </div>
                 </div>
             </div>
@@ -387,6 +396,7 @@
                 <div class="text">
                     <h2 id="deploy-title">Deploy<br>me<span class="dot-accent">.</span></h2>
                     <p>Open to graduate roles, internships and collaborations in MLOps, AI engineering and full-stack product development.</p>
+                    <p class="availability mono">● Available now · open to relocate (needs visa sponsorship)</p>
                 </div>
                 <div class="terminal mono">
                     <span class="cmd">$ nicole --contact</span>
