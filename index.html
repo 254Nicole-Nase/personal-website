@@ -81,12 +81,13 @@
         .coords { position: absolute; left: 14px; bottom: 14px; right: 14px; display: flex; justify-content: space-between; gap: 8px; font-size: 11px; background: rgba(14, 16, 20, 0.72); padding: 8px 12px; border-radius: 8px; }
         .portrait figcaption { font-size: 12px; color: var(--muted); }
 
-        /* Metrics */
+        /* At a glance */
         .metrics-wrap { padding-bottom: 96px; }
         .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-        .metric { background: var(--bg); padding: 28px; display: flex; flex-direction: column; gap: 6px; }
-        .metric .num { font-size: 52px; font-weight: 800; letter-spacing: -0.03em; }
-        .metric .num .jp { font-size: 28px; color: var(--rose); margin-left: 10px; }
+        .metric { background: var(--bg); padding: 24px 28px; display: flex; flex-direction: column; gap: 8px; color: var(--text); text-decoration: none; transition: background .2s ease; }
+        a.metric:hover { background: var(--surface); color: var(--text); }
+        .metric .label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); }
+        .metric .val { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
         .metric .desc { font-size: 15px; color: var(--muted); }
 
         /* Section heads */
@@ -135,14 +136,14 @@
 
         /* Feature importance */
         #features { padding-top: 112px; padding-bottom: 112px; }
-        .importance { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px; }
-        .group { display: flex; flex-direction: column; gap: 18px; }
-        .group h3 { margin: 0; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); font-weight: 500; }
-        .feat { display: flex; flex-direction: column; gap: 8px; }
-        .feat .row { display: flex; justify-content: space-between; gap: 12px; font-size: 16px; }
-        .feat .row .mono { color: var(--muted); font-size: 14px; }
-        .feat .bar { height: 10px; background: var(--track); border-radius: 2px; }
-        .feat .bar span { display: block; height: 100%; background: var(--amber); border-radius: 2px; }
+        .used { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+        .used li { display: grid; grid-template-columns: minmax(180px, 1fr) minmax(0, 1.6fr) minmax(200px, 1fr); gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+        .used h3 { margin: 0; font-size: 22px; font-weight: 600; }
+        .used .tools { font-size: 14px; color: var(--muted); line-height: 1.6; }
+        .used .proof { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 15px; }
+        .used .proof a { color: var(--amber); text-decoration: none; }
+        .used .proof a:hover { text-decoration: underline; }
+        @media (max-width: 720px) { .used li { grid-template-columns: minmax(0, 1fr); gap: 8px; } }
         .extras { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 24px; }
         .extra { border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
         .extra .file { margin: 0; font-size: 12px; color: var(--muted); }
@@ -181,12 +182,12 @@
     <header class="wrap topbar">
         <div class="status mono">
             <span class="led" aria-hidden="true"></span>
-            nicole-nasengo · v2026.10 · <span class="ok">ready for deployment</span>
+            nicole-nasengo · v2026.11 · <span class="ok">ready for deployment</span>
         </div>
         <nav aria-label="Primary" class="mono">
             <a href="#pipeline">/pipeline</a>
             <a href="#projects">/projects</a>
-            <a href="#features">/features</a>
+            <a href="#features">/skills</a>
             <a href="#deploy" class="cta">deploy()</a>
         </nav>
     </header>
@@ -222,12 +223,12 @@
             </figure>
         </section>
 
-        <section class="wrap metrics-wrap" aria-label="Key numbers">
+        <section class="wrap metrics-wrap" aria-label="At a glance">
             <div class="metrics">
-                <div class="metric"><span class="num dot-accent">0.86</span><span class="desc">churn-model threshold I tuned for precision vs recall at Safaricom</span></div>
-                <div class="metric"><span class="num">1,000+</span><span class="desc">staff relying on the SAP, CATOS &amp; CCIMS systems I supported at KPA</span></div>
-                <div class="metric"><span class="num">6</span><span class="desc">AI &amp; data products built end to end — law, health, food, books, ops</span></div>
-                <div class="metric"><span class="num">3<span class="jp">言語</span></span><span class="desc">Swahili (native), English (fluent), Japanese (learning)</span></div>
+                <a class="metric" href="https://github.com/254Nicole-Nase/evidence-guard" target="_blank" rel="noopener"><span class="label mono">Latest · Nov 2026 ↗</span><span class="val">0.57 → 0.72 AUROC</span><span class="desc">EvidenceGuard: NLI beats embedding similarity at catching RAG hallucinations, across 69,217 sentences</span></a>
+                <a class="metric" href="https://hakimtaani.vercel.app" target="_blank" rel="noopener"><span class="label mono">Live ↗</span><span class="val">HakiMtaani</span><span class="desc">13 Kenyan employment &amp; tenancy rules as tested code. The AI never does the maths.</span></a>
+                <a class="metric" href="https://soma-rec-thematic-recommender.vercel.app/" target="_blank" rel="noopener"><span class="label mono">72% → 98% ↗</span><span class="val">Right book, first result</span><span class="desc">SomaRec exact-title search after I rebuilt retrieval as hybrid</span></a>
+                <a class="metric" href="https://254Nicole-Nase.github.io/price-of-a-healthy-plate/" target="_blank" rel="noopener"><span class="label mono">Live dashboard ↗</span><span class="val">76.3% priced out</span><span class="desc">Kenyans who can't afford a healthy diet, mapped across 168 countries</span></a>
             </div>
         </section>
 
@@ -289,64 +290,64 @@
                             <p class="tag mono">Legal AI · live</p>
                             <h3>HakiMtaani</h3>
                         </div>
-                        <p class="desc">Free legal help for Kenyan tenants and workers, in English, Kiswahili or Sheng. AI reads the story; tested code computes what you're owed and writes the letter.</p>
+                        <p class="desc">Free legal help for Kenyan tenants and workers, in English, Kiswahili or Sheng. AI reads the story; 13 legal rules in tested code compute what you're owed and write the letter. 30 unit tests, CI on every push.</p>
                         <ul class="mono"><li>TypeScript</li><li>Supabase</li><li>Azure OpenAI</li><li>Azure Speech</li></ul>
                         <div class="links"><a href="https://hakimtaani.vercel.app" target="_blank" rel="noopener">Try it live →</a> <a href="https://github.com/254Nicole-Nase/hakimtaani" target="_blank" rel="noopener">Source →</a></div>
+                    </article>
+                    <article class="result" data-scores='{"all":0.95,"retrieval":0.90,"impact":0.70,"data":0.88,"agents":0.62}'>
+                        <div class="meta mono"><span class="rank">rank #0</span><span class="score">cos_sim 0.00</span></div>
+                        <div class="sim" aria-hidden="true"><span></span></div>
+                        <div>
+                            <p class="tag mono">Research · Apart sprint · Nov 2026</p>
+                            <h3>EvidenceGuard</h3>
+                        </div>
+                        <p class="desc">Can embedding similarity tell when a RAG answer is hallucinated? Across 69,217 RAGTruth sentences, an NLI cross-encoder reached 0.72 AUROC vs 0.57 for cosine, and cosine ranked contradicting sentences below supported ones.</p>
+                        <ul class="mono"><li>NLI</li><li>bge-base</li><li>RAGTruth</li><li>bootstrap CIs</li></ul>
+                        <div class="links"><a href="https://github.com/254Nicole-Nase/evidence-guard" target="_blank" rel="noopener">Source &amp; results →</a></div>
                     </article>
                     <article class="result" data-scores='{"all":0.93,"retrieval":0.97,"impact":0.88,"data":0.70,"agents":0.66}'>
                         <div class="meta mono"><span class="rank">rank #0</span><span class="score">cos_sim 0.00</span></div>
                         <div class="sim" aria-hidden="true"><span></span></div>
                         <div>
-                            <p class="tag mono">RAG · evaluated</p>
+                            <p class="tag mono">RAG · evaluated · live</p>
                             <h3>Drug Info Center</h3>
                         </div>
                         <p class="desc">Drug-information assistant that cites every answer to FDA label text and refuses unsafe questions, with a live evaluation dashboard.</p>
                         <ul class="mono"><li>pgvector</li><li>BM25</li><li>openFDA</li><li>TanStack Start</li></ul>
-                        <div class="links"><a href="https://github.com/254Nicole-Nase/Drug-Information-Base" target="_blank" rel="noopener">Source →</a></div>
+                        <div class="links"><a href="https://drug-information-base.vercel.app/" target="_blank" rel="noopener">Try it live →</a> <a href="https://github.com/254Nicole-Nase/Drug-Information-Base" target="_blank" rel="noopener">Source →</a></div>
                     </article>
                     <article class="result" data-scores='{"all":0.91,"retrieval":0.45,"impact":0.93,"data":0.98,"agents":0.40}'>
                         <div class="meta mono"><span class="rank">rank #0</span><span class="score">cos_sim 0.00</span></div>
                         <div class="sim" aria-hidden="true"><span></span></div>
                         <div>
-                            <p class="tag mono">Data story · forecasting</p>
+                            <p class="tag mono">Data story · forecasting · live</p>
                             <h3>The Price of a Healthy Plate</h3>
                         </div>
-                        <p class="desc">76.3% of Kenyans can't afford a healthy diet. Mapped across 168 countries and forecast to 2030 from 10,561 market price records.</p>
+                        <p class="desc">76.3% of Kenyans can't afford a healthy diet. Mapped across 168 countries, with a 145-country model validated on held-out countries (R² 0.55) and 2030 scenarios.</p>
                         <ul class="mono"><li>Python</li><li>DuckDB</li><li>scikit-learn</li><li>Hugging Face</li></ul>
-                        <div class="links"><a href="https://github.com/254Nicole-Nase/price-of-a-healthy-plate" target="_blank" rel="noopener">Source →</a></div>
-                    </article>
-                    <article class="result" data-scores='{"all":0.89,"retrieval":0.58,"impact":0.41,"data":0.74,"agents":0.97}'>
-                        <div class="meta mono"><span class="rank">rank #0</span><span class="score">cos_sim 0.00</span></div>
-                        <div class="sim" aria-hidden="true"><span></span></div>
-                        <div>
-                            <p class="tag mono">AI agent · human in the loop</p>
-                            <h3>BizOps Standup Agent</h3>
-                        </div>
-                        <p class="desc">Turns a Notion tracker into a weekly Slack brief. Code scores the risk, the LLM writes, and quality gates hold anything that looks off.</p>
-                        <ul class="mono"><li>TypeScript</li><li>Gemini</li><li>Zod</li><li>Notion + Slack</li></ul>
-                        <div class="links"><a href="https://github.com/254Nicole-Nase/BizOps-Standup-Agent-" target="_blank" rel="noopener">Source →</a></div>
+                        <div class="links"><a href="https://254Nicole-Nase.github.io/price-of-a-healthy-plate/" target="_blank" rel="noopener">Live dashboard →</a> <a href="https://github.com/254Nicole-Nase/price-of-a-healthy-plate" target="_blank" rel="noopener">Source →</a></div>
                     </article>
                     <article class="result" data-scores='{"all":0.90,"retrieval":0.95,"impact":0.79,"data":0.66,"agents":0.52}'>
                         <div class="meta mono"><span class="rank">rank #0</span><span class="score">cos_sim 0.00</span></div>
                         <div class="sim" aria-hidden="true"><span></span></div>
                         <div>
-                            <p class="tag mono">Semantic search · thesis</p>
+                            <p class="tag mono">Semantic search · thesis · live</p>
                             <h3>SomaRec</h3>
                         </div>
-                        <p class="desc">Find Kenyan books by what they're about, in English or Kiswahili, plus a CBC reading finder for teachers.</p>
+                        <p class="desc">Find 490 Kenyan books by what they're about, in English or Kiswahili. Hybrid search lifted right-book-first from 72% to 98% on exact titles, and from 48% to 82% on partial ones.</p>
                         <ul class="mono"><li>FAISS</li><li>BM25</li><li>Flask</li><li>React</li></ul>
-                        <div class="links"><a href="https://github.com/254Nicole-Nase/somaRec-thematic-recommender" target="_blank" rel="noopener">Source →</a></div>
+                        <div class="links"><a href="https://soma-rec-thematic-recommender.vercel.app/" target="_blank" rel="noopener">Try it live →</a> <a href="https://github.com/254Nicole-Nase/somaRec-thematic-recommender" target="_blank" rel="noopener">Source →</a></div>
                     </article>
-                    <article class="result" data-scores='{"all":0.86,"retrieval":0.40,"impact":0.85,"data":0.94,"agents":0.48}'>
+                    <article class="result" data-scores='{"all":0.89,"retrieval":0.58,"impact":0.41,"data":0.74,"agents":0.97}'>
                         <div class="meta mono"><span class="rank">rank #0</span><span class="score">cos_sim 0.00</span></div>
                         <div class="sim" aria-hidden="true"><span></span></div>
                         <div>
-                            <p class="tag mono">ML pipeline · competition</p>
-                            <h3>Breaking Point</h3>
+                            <p class="tag mono">AI agent · human in the loop · live</p>
+                            <h3>BizOps Standup Agent</h3>
                         </div>
-                        <p class="desc">FAOSTAT food-system pipeline: a vulnerability index and a model that flags crisis risk two years ahead.</p>
-                        <ul class="mono"><li>Python</li><li>scikit-learn</li><li>Streamlit</li><li>FAOSTAT</li></ul>
-                        <div class="links"><a href="https://github.com/254Nicole-Nase/Faostat-pipeline" target="_blank" rel="noopener">Source →</a></div>
+                        <p class="desc">Turns a Notion tracker into a weekly Slack brief. Code scores the risk, the LLM writes, and 4 quality gates hold anything that looks off. 28 tests.</p>
+                        <ul class="mono"><li>TypeScript</li><li>Gemini</li><li>Zod</li><li>Notion + Slack</li></ul>
+                        <div class="links"><a href="https://bizops-standup-agent.onrender.com" target="_blank" rel="noopener">Try it live →</a> <a href="https://github.com/254Nicole-Nase/BizOps-Standup-Agent-" target="_blank" rel="noopener">Source →</a></div>
                     </article>
                 </div>
             </div>
@@ -354,32 +355,18 @@
 
         <section id="features" class="wrap sec" aria-labelledby="features-title">
             <div class="sec-head">
-                <h2 id="features-title">Feature importance<span class="dot-accent">.</span></h2>
-                <p class="mono">model.feature_importances_ · self-reported</p>
+                <h2 id="features-title">Where I've used it<span class="dot-accent">.</span></h2>
+                <p class="mono">skills → evidence</p>
             </div>
-            <div class="importance">
-                <div class="group">
-                    <h3 class="mono">Programming &amp; full-stack</h3>
-                    <div class="feat"><div class="row"><span>Python</span><span class="mono">0.90</span></div><div class="bar"><span style="width: 90%"></span></div></div>
-                    <div class="feat"><div class="row"><span>React, TypeScript &amp; JavaScript</span><span class="mono">0.88</span></div><div class="bar"><span style="width: 88%"></span></div></div>
-                    <div class="feat"><div class="row"><span>SQL &amp; databases</span><span class="mono">0.85</span></div><div class="bar"><span style="width: 85%"></span></div></div>
-                    <div class="feat"><div class="row"><span>Express.js &amp; API engineering</span><span class="mono">0.82</span></div><div class="bar"><span style="width: 82%"></span></div></div>
-                </div>
-                <div class="group">
-                    <h3 class="mono">ML, data &amp; MLOps</h3>
-                    <div class="feat"><div class="row"><span>Feature engineering &amp; applied ML</span><span class="mono">0.85</span></div><div class="bar"><span style="width: 85%"></span></div></div>
-                    <div class="feat"><div class="row"><span>FAISS &amp; Sentence Transformers</span><span class="mono">0.82</span></div><div class="bar"><span style="width: 82%"></span></div></div>
-                    <div class="feat"><div class="row"><span>LightGBM &amp; model evaluation</span><span class="mono">0.80</span></div><div class="bar"><span style="width: 80%"></span></div></div>
-                    <div class="feat"><div class="row"><span>Spark, Airflow &amp; pipeline ops</span><span class="mono">0.76</span></div><div class="bar"><span style="width: 76%"></span></div></div>
-                </div>
-                <div class="group">
-                    <h3 class="mono">Cloud, infra &amp; collaboration</h3>
-                    <div class="feat"><div class="row"><span>Technical writing &amp; communication</span><span class="mono">0.88</span></div><div class="bar"><span style="width: 88%"></span></div></div>
-                    <div class="feat"><div class="row"><span>Git, GitHub, GitLab &amp; Jenkins</span><span class="mono">0.84</span></div><div class="bar"><span style="width: 84%"></span></div></div>
-                    <div class="feat"><div class="row"><span>AWS (S3, SageMaker, EC2)</span><span class="mono">0.80</span></div><div class="bar"><span style="width: 80%"></span></div></div>
-                    <div class="feat"><div class="row"><span>Docker, Kubernetes &amp; Linux</span><span class="mono">0.78</span></div><div class="bar"><span style="width: 78%"></span></div></div>
-                </div>
-            </div>
+            <ul class="used">
+                <li><h3>LLM evaluation &amp; research</h3><span class="tools mono">NLI cross-encoders · AUROC · bootstrap CIs · LLM-as-judge</span><span class="proof"><a href="https://github.com/254Nicole-Nase/evidence-guard" target="_blank" rel="noopener">EvidenceGuard</a><a href="https://drug-information-base.vercel.app/" target="_blank" rel="noopener">Drug Info Center</a></span></li>
+                <li><h3>Retrieval &amp; RAG</h3><span class="tools mono">FAISS · pgvector · BM25 · Sentence Transformers</span><span class="proof"><a href="https://soma-rec-thematic-recommender.vercel.app/" target="_blank" rel="noopener">SomaRec</a><a href="https://drug-information-base.vercel.app/" target="_blank" rel="noopener">Drug Info Center</a></span></li>
+                <li><h3>LLM apps &amp; agents</h3><span class="tools mono">Gemini · Azure OpenAI · structured output (Zod) · quality gates</span><span class="proof"><a href="https://hakimtaani.vercel.app" target="_blank" rel="noopener">HakiMtaani</a><a href="https://bizops-standup-agent.onrender.com" target="_blank" rel="noopener">BizOps Standup Agent</a></span></li>
+                <li><h3>MLOps &amp; pipelines</h3><span class="tools mono">Feature stores · LightGBM · Airflow · Spark</span><span class="proof"><a href="#pipeline">Safaricom</a><a href="https://github.com/254Nicole-Nase/Faostat-pipeline" target="_blank" rel="noopener">Breaking Point</a></span></li>
+                <li><h3>Data &amp; forecasting</h3><span class="tools mono">pandas · DuckDB · scikit-learn · Streamlit · Plotly</span><span class="proof"><a href="https://254Nicole-Nase.github.io/price-of-a-healthy-plate/" target="_blank" rel="noopener">Price of a Healthy Plate</a></span></li>
+                <li><h3>Cloud &amp; infrastructure</h3><span class="tools mono">AWS · Azure AI · Docker · Kubernetes · Jenkins · GitHub Actions</span><span class="proof"><a href="#pipeline">Safaricom AI gateway</a><a href="https://github.com/254Nicole-Nase/kubernetes-hackathon" target="_blank" rel="noopener">Kubernetes Hackathon</a></span></li>
+                <li><h3>Full-stack</h3><span class="tools mono">Python · TypeScript · React · Express · Flask · Supabase</span><span class="proof"><a href="https://hakimtaani.vercel.app" target="_blank" rel="noopener">HakiMtaani</a><a href="https://soma-rec-thematic-recommender.vercel.app/" target="_blank" rel="noopener">SomaRec</a></span></li>
+            </ul>
             <div class="extras">
                 <div class="extra">
                     <p class="file mono">certifications.json</p>
@@ -389,7 +376,7 @@
                     <p class="file mono">off_duty.log</p>
                     <div class="hobby">
                         <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true"><circle cx="28" cy="28" r="26" stroke="#3A404C" stroke-width="2"/><circle cx="28" cy="28" r="17" stroke="#F48FB1" stroke-width="2"/><circle cx="28" cy="28" r="8" stroke="#F2A541" stroke-width="2"/><circle cx="28" cy="28" r="2.5" fill="#F2A541"/><path d="M46 10L29.5 26.5" stroke="#EEE8DF" stroke-width="2" stroke-linecap="round"/><path d="M41 9h6v6" stroke="#EEE8DF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <p>Archery (precision is a hobby, too), avid reading, technical blogging and video essays on tech &amp; society.</p>
+                        <p>Speaks Kiswahili and English, learning <span class="jp">日本語</span>. Archery (precision is a hobby, too), avid reading, technical blogging and video essays on tech &amp; society.</p>
                     </div>
                 </div>
             </div>

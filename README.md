@@ -7,10 +7,10 @@ A model-card style personal portfolio built with plain HTML, CSS and vanilla Jav
 A portfolio presented as an ML **model card**: dark ink background with amber and rose accents, set in Bricolage Grotesque and IBM Plex Mono.
 
 - **Hero**: name, one-line pitch and a portrait framed like an object-detection result
-- **Key numbers**: results pulled from experience
+- **At a glance**: latest research result, live product, search gain and live dashboard
 - **Training run**: education and experience as stages of a pipeline, ending in an open "deploy" stage
 - **Nearest neighbours**: projects shown as search results; pick a query to re-rank them
-- **Feature importance**: skills as an importance chart, plus certifications and hobbies
+- **Where I've used it**: each skill area linked to the projects that prove it, plus certifications and hobbies
 - **Deploy me**: contact details in a terminal-style block
 
 ## Technologies Used
