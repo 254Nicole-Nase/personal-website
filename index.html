@@ -80,6 +80,7 @@
         .bbox-label { position: absolute; left: 27%; top: calc(9% - 30px); background: var(--amber); color: var(--bg); font-size: 12px; font-weight: 500; padding: 5px 9px; border-radius: 4px 4px 0 0; }
         .coords { position: absolute; left: 14px; bottom: 14px; right: 14px; display: flex; justify-content: space-between; gap: 8px; font-size: 11px; background: rgba(14, 16, 20, 0.72); padding: 8px 12px; border-radius: 8px; }
         .portrait figcaption { font-size: 12px; color: var(--muted); }
+        .cv-btn { gap: 8px; }
 
         /* At a glance */
         .metrics-wrap { padding-bottom: 96px; }
@@ -111,6 +112,16 @@
         .stage ul { margin: 0; padding-left: 18px; font-size: 15px; line-height: 1.55; color: var(--body); display: flex; flex-direction: column; gap: 6px; }
         .stage .award { margin: 0; font-size: 13px; color: var(--amber); border-top: 1px solid var(--line); padding-top: 12px; }
         .deploy-row .text p.availability { margin: 0; font-size: 15px; color: var(--ok); }
+        .shipped { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(260px, 1fr); gap: 16px; }
+        .shipped .panel { border: 1px solid var(--line); border-radius: 16px; padding: 28px; background: var(--surface); display: flex; flex-direction: column; gap: 16px; }
+        .shipped h3 { margin: 0; font-size: 22px; font-weight: 600; }
+        .shipped .kicker { margin: 0; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); }
+        .shipped ul { margin: 0; padding-left: 18px; font-size: 16px; line-height: 1.6; color: var(--body); display: flex; flex-direction: column; gap: 10px; }
+        .shipped ul b { color: var(--text); font-weight: 600; }
+        .shipped .award-panel { border-color: var(--amber); background: transparent; }
+        .shipped .place { font-size: 56px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: var(--amber); }
+        .shipped p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--body); }
+        @media (max-width: 720px) { .shipped { grid-template-columns: minmax(0, 1fr); } }
         .stage .trigger { margin-top: auto; font-size: 15px; font-weight: 600; text-decoration: none; padding: 12px 0; }
 
         /* Projects (light band) */
@@ -206,6 +217,7 @@
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                     </a>
                     <a class="btn pill ghost" href="#projects">See the work</a>
+                    <a class="btn pill ghost cv-btn" href="cv/Nicole_Nasengo_CV.pdf" download>Download CV <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
                     <a class="btn icon-btn" href="https://github.com/254Nicole-Nase" target="_blank" rel="noopener" aria-label="GitHub profile">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
                     </a>
@@ -219,10 +231,9 @@
                 <div class="frame">
                     <img src="profile.jpg" alt="Portrait of Nicole Nasengo smiling, wearing pearl hoop earrings and a floral top" width="1400" height="1045">
                     <div class="bbox" aria-hidden="true"></div>
-                    <div class="bbox-label mono" aria-hidden="true">engineer · conf 0.99</div>
-                    <div class="coords mono" aria-hidden="true"><span>−1.29° S, 36.82° E</span><span>NBO · KE</span></div>
+                    <div class="bbox-label mono" aria-hidden="true">nicole · nairobi</div>
                 </div>
-                <figcaption class="mono">fig.01 — object detected: one very capable engineer</figcaption>
+                <figcaption class="mono">fig.01 — Nicole Nasengo, Nairobi</figcaption>
             </figure>
         </section>
 
@@ -251,20 +262,14 @@
                     <div class="stage-top mono"><span>02 · validate</span><span class="ok">✓ success</span></div>
                     <h3>Kenya Ports Authority</h3>
                     <p class="when mono">IT Support Intern · Mombasa · Jan — Mar 2025</p>
-                    <p class="body">Kept mission-critical SAP, CATOS and CCIMS systems running for 1,000+ staff; network troubleshooting, backups and compliance workflows.</p>
+                    <p class="body">Supported 1,000+ staff on workstations, LAN connectivity and switch configuration, and enterprise systems (SAP, CATOS).</p>
                 </li>
                 <li class="stage card">
                     <div class="stage-top mono"><span>03 · train</span><span class="ok">✓ success</span></div>
                     <h3>Safaricom</h3>
                     <p class="when mono">MLOps Intern · Nairobi · May — Oct 2026</p>
-                    <ul>
-                        <li>Took over and deployed two ML services: a device-financing early-warning model and a RAG chatbot for the cybersecurity team.</li>
-                        <li>Fixed failing Jenkins and SonarQube builds on a hardened base image.</li>
-                        <li>Traced customers disappearing between databases to mismatched phone-number formats.</li>
-                        <li>Built feature-store pipeline jobs for a survival model (Random Survival Forest).</li>
-                        <li>Worked on an internal LLM gateway (LiteLLM) on AWS, from DEV to UAT.</li>
-                    </ul>
-                    <p class="award mono">3rd place · Safaricom hackathon (SafeUndo)</p>
+                    <p class="body">ML pipelines and model deployment for M-PESA, Kenya's mobile-money platform. <a href="#shipped" class="trigger" style="padding:0">What I shipped ↓</a></p>
+                    <p class="award mono">3rd place · Safaricom Interns AI/ML Hackathon 2026</p>
                 </li>
                 <li class="stage next">
                     <div class="stage-top mono"><span>04 · deploy</span><span class="wait">◌ awaiting</span></div>
@@ -274,6 +279,25 @@
                     <a href="#deploy" class="trigger">Trigger this stage →</a>
                 </li>
             </ol>
+            <div class="shipped" id="shipped">
+                <div class="panel">
+                    <p class="kicker mono">Safaricom · MLOps Intern · May — Oct 2026</p>
+                    <h3>What I shipped</h3>
+                    <ul>
+                        <li><b>Churn-prediction pipelines.</b> Built the pipeline jobs behind a customer-churn survival model (Random Survival Forest) for M-PESA, Kenya's mobile-money service: feature extraction over six-month histories, dataset merging and scoring, in Python, SQL and Spark, orchestrated with MLRun.</li>
+                        <li><b>Data you can trust.</b> Added checks before every scoring run: schema and feature-order validation, missing values, and row counts reconciled between source and output.</li>
+                        <li><b>A silent data bug.</b> Traced customers disappearing between two databases to phone numbers stored in different formats, and fixed it by standardising the join key.</li>
+                        <li><b>Two services to deployment.</b> Took over and owned the deployment of a credit-risk early-warning model and a RAG assistant for an internal security team: fixed their Jenkins and SonarQube builds on a security-hardened base image, deployed them on the ML platform, and set up test access through AWS API Gateway.</li>
+                        <li><b>Shared LLM gateway.</b> Worked on an internal gateway (LiteLLM, FastAPI) that gives teams shared access to language models: an early version with Docker Compose on EC2, then the AWS ECS Fargate build with CI/CD from DEV to UAT.</li>
+                    </ul>
+                </div>
+                <div class="panel award-panel">
+                    <p class="kicker mono">Achievement · Oct 2026</p>
+                    <span class="place">3rd</span>
+                    <h3>Safaricom Interns AI/ML Hackathon</h3>
+                    <p>ML engineer on Team Sixth Sense. We built <b style="color: var(--text)">SafeUndo</b>, a prototype that protects mobile-money users from mistaken or fraudulent transfers and helps reverse them. FinTech &amp; Financial Inclusion track.</p>
+                </div>
+            </div>
         </section>
 
         <section id="projects" class="light" aria-labelledby="projects-title">
@@ -372,9 +396,9 @@
                 <li><h3>LLM evaluation &amp; research</h3><span class="tools mono">NLI cross-encoders · AUROC · bootstrap CIs · LLM-as-judge</span><span class="proof"><a href="https://github.com/254Nicole-Nase/evidence-guard" target="_blank" rel="noopener">EvidenceGuard</a><a href="https://drug-information-base.vercel.app/" target="_blank" rel="noopener">Drug Info Center</a></span></li>
                 <li><h3>Retrieval &amp; RAG</h3><span class="tools mono">FAISS · pgvector · BM25 · Sentence Transformers</span><span class="proof"><a href="https://soma-rec-thematic-recommender.vercel.app/" target="_blank" rel="noopener">SomaRec</a><a href="https://drug-information-base.vercel.app/" target="_blank" rel="noopener">Drug Info Center</a></span></li>
                 <li><h3>LLM apps &amp; agents</h3><span class="tools mono">Gemini · Azure OpenAI · structured output (Zod) · quality gates</span><span class="proof"><a href="https://hakimtaani.vercel.app" target="_blank" rel="noopener">HakiMtaani</a><a href="https://bizops-standup-agent.onrender.com" target="_blank" rel="noopener">BizOps Standup Agent</a></span></li>
-                <li><h3>MLOps &amp; pipelines</h3><span class="tools mono">Model deployment · feature-store pipelines · survival models (RSF) · Jenkins · SonarQube</span><span class="proof"><a href="#pipeline">Safaricom</a></span></li>
+                <li><h3>MLOps &amp; pipelines</h3><span class="tools mono">MLRun · Spark · survival models (RSF) · data validation · Jenkins &amp; SonarQube · model deployment</span><span class="proof"><a href="#shipped">Safaricom</a></span></li>
                 <li><h3>Data &amp; forecasting</h3><span class="tools mono">pandas · DuckDB · scikit-learn · Streamlit · Plotly</span><span class="proof"><a href="https://254Nicole-Nase.github.io/price-of-a-healthy-plate/" target="_blank" rel="noopener">Price of a Healthy Plate</a></span></li>
-                <li><h3>Cloud &amp; infrastructure</h3><span class="tools mono">AWS · Azure AI · Docker · LiteLLM · GitHub Actions · Kubernetes (hackathon, familiar)</span><span class="proof"><a href="#pipeline">Safaricom LLM gateway</a><a href="https://github.com/254Nicole-Nase/kubernetes-hackathon" target="_blank" rel="noopener">Kubernetes Hackathon</a></span></li>
+                <li><h3>Cloud &amp; infrastructure</h3><span class="tools mono">AWS (S3, EC2, ECS Fargate, API Gateway) · Docker · LiteLLM · FastAPI · Azure AI · GitHub Actions · Kubernetes (hackathon, familiar)</span><span class="proof"><a href="#shipped">Safaricom LLM gateway</a><a href="https://github.com/254Nicole-Nase/kubernetes-hackathon" target="_blank" rel="noopener">Kubernetes Hackathon</a></span></li>
                 <li><h3>Full-stack</h3><span class="tools mono">Python · TypeScript · React · Express · Flask · Supabase</span><span class="proof"><a href="https://hakimtaani.vercel.app" target="_blank" rel="noopener">HakiMtaani</a><a href="https://soma-rec-thematic-recommender.vercel.app/" target="_blank" rel="noopener">SomaRec</a></span></li>
             </ul>
             <div class="extras">
@@ -385,7 +409,7 @@
                 <div class="extra">
                     <p class="file mono">off_duty.log</p>
                     <div class="hobby">
-                        <p>Speaks Kiswahili and English, learning <span class="jp">日本語</span>. Avid reader; technical blogging and video essays on tech &amp; society.</p>
+                        <p>Speaks Kiswahili and English, learning <span class="jp">日本語</span>. Avid reader. Volunteer early-childhood teaching assistant (2023) and mentorship visits to a youth rehabilitation centre and a children's home (2026).</p>
                     </div>
                 </div>
             </div>
@@ -404,6 +428,7 @@
                     <a href="tel:+254745062103">→ +254 745 062 103</a>
                     <a href="https://www.linkedin.com/in/nasengon" target="_blank" rel="noopener">→ linkedin.com/in/nasengon</a>
                     <a href="https://github.com/254Nicole-Nase" target="_blank" rel="noopener">→ github.com/254Nicole-Nase</a>
+                    <a href="cv/Nicole_Nasengo_CV.pdf" download>→ CV (PDF)</a>
                 </div>
             </div>
             <footer class="wrap mono">
